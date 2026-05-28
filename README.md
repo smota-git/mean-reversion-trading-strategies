@@ -48,7 +48,8 @@ Main observations:
 * some profitable strategies became unprofitable after including execution costs,
 * BTC showed stronger persistence of mean-reversion effects than most equities.
 
-  <img width="1162" height="366" alt="image" src="https://github.com/user-attachments/assets/0b812d4a-7b26-4d15-9d6c-2727d1ee329c" />
+  <img width="1278" height="385" alt="image" src="https://github.com/user-attachments/assets/ebaf7521-4ca3-4c54-87b9-8e0c78b12d31" />
+
 
 
 
