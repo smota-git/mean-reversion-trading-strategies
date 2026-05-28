@@ -2,71 +2,63 @@
 
 ## Overview
 
-This project explores the performance of simple mean-reversion trading strategies across multiple financial assets and averaging horizons.
+This project explores simple mean-reversion trading strategies across multiple financial assets using hourly market data.
 
-The objective is not to develop a production-ready trading system, but rather to investigate how strategy behavior changes depending on:
-- asset class,
-- averaging window,
-- trading frequency,
-- and transaction costs.
+The objective is to analyze how strategy behavior changes depending on:
+
+* asset class,
+* averaging horizon,
+* and transaction costs.
 
 The analysis includes:
-- AAPL
-- SPY
-- BTC-USD
-- XOM
-- JPM
+
+* AAPL
+* SPY
+* BTC-USD
+* XOM
+* JPM
 
 ---
 
 ## Methodology
 
-For each asset, rolling mean and rolling standard deviation were computed using multiple averaging horizons:
-- 20 trading hours
-- 1 month
-- 1 quarter
-- 1 half-year
-- 1 year
-
-A z-score signal was defined as:
-
-z = (price - rolling_mean) / rolling_std
+Trading signals are based on z-scores computed from rolling means and rolling standard deviations over different averaging horizons.
 
 Trading rules:
-- z-score > 1 → short position
-- z-score < -1 → long position
-- otherwise → flat position
 
-Portfolio returns were evaluated using a simple backtesting framework with shifted positions to avoid look-ahead bias.
+* high positive z-score → short position
+* high negative z-score → long position
 
----
+Strategy performance is evaluated using:
 
-## Performance Metrics
+* total return,
+* Sharpe ratio,
+* maximum drawdown.
 
-The strategies were evaluated using:
-- total return
-- Sharpe ratio
-- maximum drawdown
-
-Transaction costs were additionally incorporated to evaluate the sensitivity of highly active strategies.
+Transaction costs are additionally incorporated to evaluate strategy robustness.
 
 ---
 
 ## Key Findings
 
 Main observations:
-- Buy-and-hold frequently outperformed active mean-reversion strategies.
-- Strategy performance strongly depended on averaging horizon and asset class.
-- Shorter averaging horizons generated significantly higher transaction costs.
-- Some seemingly profitable strategies became unprofitable after including execution costs.
-- BTC showed stronger persistence of mean-reversion effects compared to traditional equities.
+
+* buy-and-hold frequently outperformed active trading strategies,
+* shorter averaging horizons generated larger transaction costs,
+* some profitable strategies became unprofitable after including execution costs,
+* BTC showed stronger persistence of mean-reversion effects than most equities.
 
 ---
 
-## Example Results
+## Repository Contents
 
-| Asset | Strategy | Total Return | Sharpe |
-|---|---|---|---|
-| AAPL | Buy-and-Hold | 28.4% | 0.45 |
-| BTC | 20h Mean Reversion | 37.4% | 0.44 |
-| SPY | Buy-and-Hold | 29.4% | 0.76 |
+* research report
+* backtesting code
+* strategy evaluation
+* performance visualizations
+
+---
+
+## Technologies
+
+Python, pandas, numpy, matplotlib, yfinance
