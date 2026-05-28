@@ -14,7 +14,7 @@ The analysis includes:
 
 * AAPL
 * SPY
-* BTC-USD
+* BTC
 * XOM
 * JPM
 
@@ -72,4 +72,4 @@ Python, pandas, numpy, matplotlib, yfinance
 
 ## Full Report
 
-See `report/mean_reversion_trading_strategies.pdf`
+See `mean_reversion_trading_strategies.pdf`
