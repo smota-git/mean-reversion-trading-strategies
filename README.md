@@ -62,3 +62,9 @@ Main observations:
 ## Technologies
 
 Python, pandas, numpy, matplotlib, yfinance
+
+---
+
+## Full Report
+
+See `report/mean_reversion_trading_strategies.pdf`
