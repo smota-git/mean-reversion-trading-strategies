@@ -1,3 +1,16 @@
+"""
+Mean-Reversion Trading Strategies Across Assets and Averaging Horizons
+
+Exploratory backtest of a simple z-score based mean-reversion strategy
+applied to multiple financial assets using hourly market data.
+
+The script evaluates strategy performance across different averaging
+horizons and compares results with a buy-and-hold benchmark.
+Transaction costs can optionally be incorporated into the analysis.
+
+Author: Jan Smotlacha
+"""
+
 import yfinance as yf
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,8 +48,8 @@ elif meantime == "20":
 data.columns = data.columns.get_level_values(0)
 data = data.dropna()
 
-# window - count of records in averaging horizon (corresponds with approprpiate count of trading hours)
-window = max(20,data.shape[0]-data0.shape[0])
+# window - count of records in averaging horizon (corresponds with appropriate count of trading hours)
+window = max(20, data.shape[0]-data0.shape[0])
 data['ma'] = data['Close'].rolling(window).mean()
 data['std'] = data['Close'].rolling(window).std()
 
@@ -79,7 +92,7 @@ drawdown_net = data['equity_net'] / data['equity_net'].cummax() - 1
 max_dd_net = drawdown_net.min()
 
 # graph with transaction costs (uncomment if needed)
-data['equity_net'].iloc[window:].plot(title="Strategy Equity Curve With Transaction Costs")
+#data['equity_net'].iloc[window:].plot(title="Strategy Equity Curve With Transaction Costs")
 
 # summary of results
 print(f"Asset: {asset}")
